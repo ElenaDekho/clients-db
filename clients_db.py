@@ -101,7 +101,7 @@ def find_client(conn, first_name=None, last_name=None, email=None, phone=None):
 # === ОСНОВНОЙ КОД: создаём БД и тестируем всё ===
 if __name__ == '__main__':
     # Шаг 1: Создаём базу clients_db (подключаясь к служебной 'postgres')
-    conn_admin = psycopg2.connect(database="postgres", user="postgres", password="strekoza")
+    conn_admin = psycopg2.connect(database="postgres", user="postgres", password="you_password")
     conn_admin.autocommit = True
     with conn_admin.cursor() as cur:
         cur.execute("DROP DATABASE IF EXISTS clients_db;")
@@ -109,7 +109,7 @@ if __name__ == '__main__':
     conn_admin.close()
 
     # Шаг 2: Подключаемся к нашей базе
-    with psycopg2.connect(database="clients_db", user="postgres", password="strekoza") as conn:
+    with psycopg2.connect(database="clients_db", user="postgres", password="you_password") as conn:
         # Создаём таблицы
         create_db(conn)
 
